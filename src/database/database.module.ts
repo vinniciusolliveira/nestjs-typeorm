@@ -1,6 +1,7 @@
 import { Global, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Item } from 'src/items/entities/item.entity';
 
 @Global()
 @Module({
@@ -17,7 +18,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         migrations: [
             "migrations/*.ts"
         ],
-        entities: [],
+        entities: [Item],
         synchronize: Boolean(configService.get('DB_SYNCHRONIZE')),
         logging: Boolean(configService.get('DB_LOGGING')),
         autoLoadEntities: true,
