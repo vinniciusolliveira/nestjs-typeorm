@@ -1,0 +1,13 @@
+name: nestjs-typeorm
+services:
+  postgres:
+    container_name: postgres-db
+    image: bitnami/postgresql:latest
+    env_file:
+      - ./.env
+    ports:
+      - 5433:5432
+    
+volumes:
+  postgres_data:
+    driver: local
